@@ -1,16 +1,16 @@
 #summary Using `tinymce`.
+#labels Featured
 
 = Usage =
 
 The application can enable TinyMCE for one form field using the `widget` keyword argument of `Field` constructors or for all textareas on a page using a view.
 
 == Using the widget ==
-The TinyMCE widget can be enabled by setting it as the widget for a formfield. For example, to use a nice big TinyMCE widget for the content field of a flatpage you could use the following code:
+The TinyMCE widget can be enabled by setting it as the widget for a formfield. For example, to use a nice big TinyMCE widget for the content field of a flatpage form you could use the following code:
 
 {{{
 class FlatpageForm(ModelForm):
     content = forms.CharField(widget=TinyMCE(
-        content_language=CONTENT_LOCALE,
         attrs={'cols': 80, 'rows': 30},
     ))
 
@@ -18,10 +18,13 @@ class FlatpageForm(ModelForm):
         model = Flatpage
 }}}
 
-The widget accepts the following keyword argument:
+The widget accepts the following keyword arguments:
 
-*`content_language`*
+*`content_language`* (default: `django.utils.translation.get_language_code()`)
   The language of the widget content. Will be used to set the `language`, `directionality` and `spellchecker_languages` configuration options of the TinyMCE editor.
+
+*`mce_attrs`* (default: `{}`)
+  Extra TinyMCE configuration options.
 
 == Using the view ==
 
