@@ -1,0 +1,10 @@
+#summary Project history and credits.
+
+= Changelog =
+
+*2008-08-21*:
+  * Moved to Google Code.
+
+= Credits =
+
+`tinymce` was written by [http://joost.cassee.net/ Joost Cassee] based on the work by John D'Agostino. It was partly taken from [http://code.djangoproject.com/wiki/CustomWidgetsTinyMCE his code at the Django code wiki].
