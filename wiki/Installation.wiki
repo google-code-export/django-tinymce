@@ -1,0 +1,42 @@
+#summary Installation and configuration of `tinymce`.
+#labels Featured
+
+= Prerequisites =
+
+You will need [http://tinymce.moxiecode.com/download.php TinyMCE] version 3.0 or higher and a [http://tinymce.moxiecode.com/language.php language package] for your projects languages. If you want to use the [http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/spellchecker spellchecker plugin] using the supplied view (instead of PHP) you must install the [http://pyenchant.sourceforge.net/ PyEnchant] package and dictionaries for your project languages.
+
+= Installation =
+
+  # Download or checkout the `tinymce` application into your Python path. (Django adds your project directory to the path, so you may add it as a project subdirectory.)
+    * Download: [http://code.google.com/p/django-tinymce/downloads/list the latest release]
+    * Checkout: `svn checkout http://django-tinymce.googlecode.com/svn/trunk/tinymce`
+  # Copy the `jscripts/tiny_mce` directory from the TinyMCE distribution into a directory named `js` in your media root. You can override the location in your settings (see below).
+  # If you want to use the javascript or spellchecker views add `'tinymce'` to `settings.INSTALLED_APPS`.
+
+= Configuration =
+
+The application can be configured by editing the project's `settings.py` file.
+
+*`TINYMCE_JS_URL`* (default: `settings.MEDIA_URL + 'js/tiny_mce/tiny_mce.js'`)
+  The URL of the TinyMCE javascript file.
+
+* `TINYMCE_DEFAULT_CONFIG`* (default: `{'theme': "simple"}`)
+  The default TinyMCE configuration to use. See [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration the TinyMCE manual] for all options.
+
+* `USE_SPELLCHECKER`* (default: `False`)
+   Whether to use the spell checker through the supplied view. You must add `spellchecker` to the plugin list yourself, it is not added automatically.
+
+Example:
+{{{
+TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+}
+TINYMCE_SPELLCHECKER = True
+}}}
+
+
+= What's next =
+
+Go to the [Usage] page to find out how to use `tinymce`.
