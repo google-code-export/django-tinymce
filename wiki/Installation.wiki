@@ -3,7 +3,7 @@
 
 = Prerequisites =
 
-You will need [http://tinymce.moxiecode.com/download.php TinyMCE] version 3.0 or higher and a [http://tinymce.moxiecode.com/language.php language package] for your projects languages. If you want to use the [http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/spellchecker spellchecker plugin] using the supplied view (instead of PHP) you must install the [http://pyenchant.sourceforge.net/ PyEnchant] package and dictionaries for your project languages.
+The `tinymce` application requires *Django 1.0-alpha* or higher. You will also need [http://tinymce.moxiecode.com/download.php TinyMCE] version 3.0 or higher and optionally a [http://tinymce.moxiecode.com/language.php language package] for your projects languages. If you want to use the [http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/spellchecker spellchecker plugin] using the supplied view (no PHP needed) you must install the [http://pyenchant.sourceforge.net/ PyEnchant] package and dictionaries for your project languages.
 
 = Installation =
 
