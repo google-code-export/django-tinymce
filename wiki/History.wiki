@@ -2,6 +2,9 @@
 
 = Changelog =
 
+*2008-08-24*:
+  * Added link and image list support.
+
 *2008-08-21*:
   * Moved to Google Code.
 
