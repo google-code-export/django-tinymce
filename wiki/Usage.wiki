@@ -51,3 +51,30 @@ tinyMCE.init({
 }}}
 
 This example also shows all variables you can use in the template.
+
+== External link and image lists ==
+
+The TinyMCE link and image dialogs can be enhanced using a listbox with predefined entries. These entries are filled using a variable loaded from an external Javascript. The `tinymce` application can render these files for you.
+
+To use a predefined link list, add the `external_link_list_url` option to the `mce_attrs` keyword argument to the widget (or the template if you use the view). The value is a URL that points to a view that fills a list of 2-tuples and calls `tinymce.views.render_to_link_list`. The first element of the tuple is the link name and the second element the URL.
+
+Example:
+
+Create the widget:
+{{{
+field = forms.CharField(widget=TinyMCE(
+    mce_attrs={'external_link_list_url': reverse('someapp.views.someview')})
+}}}
+
+Create the view:
+{{{
+from tinymce.views import render_to_link_list
+def someview(request):
+    objects = ...
+    link_list = [(unicode(obj), obj.get_absolute_url()) for obj in objects]
+    return render_to_link_list(link_list)
+}}}
+
+As an example, the `tinymce` application contains a predefined view that lists all `django.contrib.flatpages` objects: `tinymce.views.flatpages_link_list`.
+
+Image lists work exactly the same way, just use the TinyMCE `external_image_list_url` configuration option.
