@@ -6,8 +6,13 @@
 The application can enable TinyMCE for one form field using the `widget` keyword argument of `Field` constructors or for all textareas on a page using a view.
 
 == Using the widget ==
-The TinyMCE widget can be enabled by setting it as the widget for a formfield. For example, to use a nice big TinyMCE widget for the content field of a flatpage form you could use the following code:
 
+If you use the widget (recommended) you need to add some python code and possibly modify your template.
+
+=== Python code ===
+
+The TinyMCE widget can be enabled by setting it as the widget for a formfield. For example, to use a nice big TinyMCE widget for the content field of a flatpage form you could use the following code:
+http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_link_list_url
 {{{
 class FlatpageForm(ModelForm):
     content = forms.CharField(widget=TinyMCE(
@@ -25,6 +30,16 @@ The widget accepts the following keyword arguments:
 
 *`mce_attrs`* (default: `{}`)
   Extra TinyMCE configuration options.
+
+=== Templates ===
+
+The widget (obviously) requires a link to the TinyMCE javascript code. The `django.contrib.admin` templates do this for you automatically, so if you are just using `tinymce` in admin forms then you are done. In your own templates containing forms with `tinymce` widgets you must add the following to the HTML `HEAD` section (supposing you named your form 'form'):
+{{{
+<head>
+  ...
+  {{ form.media }}
+</head>
+}}}
 
 == Using the view ==
 
@@ -54,7 +69,9 @@ This example also shows all variables you can use in the template.
 
 == External link and image lists ==
 
-The TinyMCE link and image dialogs can be enhanced using a listbox with predefined entries. These entries are filled using a variable loaded from an external Javascript. The `tinymce` application can render these files for you.
+The TinyMCE link and image dialogs can be enhanced with a predefined list of [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_link_list_url links] and [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_image_list_url images]. These entries are filled using a variable loaded from an external Javascript. The `tinymce` application can render these files for you.
+
+=== Creating external link and image views ===
 
 To use a predefined link list, add the `external_link_list_url` option to the `mce_attrs` keyword argument to the widget (or the template if you use the view). The value is a URL that points to a view that fills a list of 2-tuples and calls `tinymce.views.render_to_link_list`. The first element of the tuple is the link name and the second element the URL.
 
@@ -81,7 +98,7 @@ def someview(request):
 
 Image lists work exactly the same way, just use the TinyMCE `external_image_list_url` configuration option and call `tinymce.views.render_to_image_list` from your view.
 
-=== flatpages ===
+=== The `flatpages_link_list` view ===
 
 As an example, the `tinymce` application contains a predefined view that lists all `django.contrib.flatpages` objects: `tinymce.views.flatpages_link_list`. If you want to use a TinyMCE widget for the flatpages `content` field and be able to easily link to other flatpages you could use something like this:
 
