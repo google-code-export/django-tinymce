@@ -77,4 +77,4 @@ def someview(request):
 
 As an example, the `tinymce` application contains a predefined view that lists all `django.contrib.flatpages` objects: `tinymce.views.flatpages_link_list`.
 
-Image lists work exactly the same way, just use the TinyMCE `external_image_list_url` configuration option.
+Image lists work exactly the same way, just use the TinyMCE `external_image_list_url` configuration option and call `tinymce.views.render_to_image_list` from your view.
