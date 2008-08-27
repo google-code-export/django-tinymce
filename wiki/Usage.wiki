@@ -131,11 +131,13 @@ class TinyMCEFlatPageAdmin(FlatPageAdmin):
             ))
         return super(TinyMCEFlatPageAdmin, self).formfield_for_dbfield(db_field, **kwargs)
 
-admin.site.register(FlatPage, TinyMCEFlatPageAdmin)
+somesite.register(FlatPage, TinyMCEFlatPageAdmin)
 }}}
 
-If you have enabled autodiscovery of the admin site (see the [http://www.djangoproject.com/documentation/admin/#hooking-adminsite-instances-into-your-urlconf Django documentation]) you will need to unregister the original !ModelAdmin class for flatpages:
+If you want to enable this for the default admin site (`django.contrib.admin.site`) you will need to unregister the original !ModelAdmin class for flatpages first:
 {{{
+from django.contrib import admin
+
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, TinyMCEFlatPageAdmin)
 }}}
