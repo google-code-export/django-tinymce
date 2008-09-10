@@ -8,7 +8,7 @@ The `tinymce` application requires *Django 1.0-alpha* or higher. You will also n
 = Installation =
 
   # Download or checkout the `tinymce` application into your Python path. (Django adds your project directory to the path, so you may add it as a project subdirectory.)
-    * Download: [http://code.google.com/p/django-tinymce/downloads/list the latest release] (will be available when Django 1.0 is released)
+    * Download: [http://code.google.com/p/django-tinymce/downloads/list the latest release]
     * Checkout: `svn checkout http://django-tinymce.googlecode.com/svn/trunk/tinymce`
   # Copy the `jscripts/tiny_mce` directory from the TinyMCE distribution into a directory named `js` in your media root. You can override the location in your settings (see below).
   # If you want to use any of the views add `tinymce` your installed applications list and URLconf:
