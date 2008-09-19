@@ -143,7 +143,7 @@ admin.site.register(FlatPage, TinyMCEFlatPageAdmin)
 }}}
 
 The source contains a [http://code.google.com/p/django-tinymce/source/browse/trunk/testproject/ test project] that includes this flatpages model admin. You just need to add the TinyMCE javascript code.
-  * Checkout: `svn checkout http://code.google.com/p/django-tinymce/source/browse/trunk/testproject`
+  * Checkout: `svn checkout http://django-tinymce.googlecode.com/svn/trunk/testtinymce`
   * Copy the `tiny_mce` directory from the TinyMCE distribution into `media/js`
   * Run `./manage.py syncdb`
   * Run `./manage.py runserver`
