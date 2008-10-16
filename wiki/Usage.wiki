@@ -46,6 +46,22 @@ The widget requires a link to the TinyMCE javascript code. The `django.contrib.a
 
 See also [http://www.djangoproject.com/documentation/forms/#media-on-forms the section of form media] in the Django documentation.
 
+=== The `HTMLField` model field type ===
+
+_new in development version_
+
+For lazy developers the `tinymce` application also contains a model field type for storing HTML. It uses the TinyMCE widget to render its form field. In this example, the admin will render the `my_field` field using the TinyMCE widget:
+
+{{{
+from django.db import models
+from tinymce import models as tinymce_models
+
+class MyModel(models.Model):
+    my_field = tinymce_models.HTMLField()
+}}}
+
+In all other regards, `HTMLField` behaves just like the standard Django `TextField` field type.
+
 == Using the view ==
 
 If you cannot or will not change the widget on a form you can also use the `tinymce-js` named view to convert some or all textfields on a page to TinyMCE editors. On the template of the page, add the following lines to the `HEAD` element:
