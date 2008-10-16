@@ -70,7 +70,7 @@ If you cannot or will not change the widget on a form you can also use the `tiny
 <script type="text/javascript" src="{% url tinymce-js "NAME" %}"></script>
 }}}
 
-The `NAME` allows you to create multiple TinyMCE configurations. Now create a template containing the Javascript initialization code. It should be placed in the template path as `NAME/tinymce_textareas.js` or `tinymce/NAME_textareas.js`.
+The `NAME` argument allows you to create multiple TinyMCE configurations. Now create a template containing the Javascript initialization code. It should be placed in the template path as `NAME/tinymce_textareas.js` or `tinymce/NAME_textareas.js`.
 
 Example:
 
@@ -86,7 +86,7 @@ tinyMCE.init({
 });
 }}}
 
-This example also shows the variables you can use in the template. The language variables are based on the current Django language. If the content language is different from the interface language use the `tinymce-js-lang` view which takes a language argument:
+This example also shows the variables you can use in the template. The language variables are based on the current Django language. If the content language is different from the interface language use the `tinymce-js-lang` view which takes a language (`LANG_CODE`) argument:
 {{{
 <script type="text/javascript" src="{% url tinymce-js-lang "NAME","LANG_CODE" %}"></script>
 }}}
@@ -94,7 +94,7 @@ This example also shows the variables you can use in the template. The language 
 
 == External link and image lists ==
 
-The TinyMCE link and image dialogs can be enhanced with a predefined list of [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_link_list_url links] and [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_image_list_url images]. These entries are filled using a variable loaded from an external Javascript. The `tinymce` application can render these files for you.
+The TinyMCE link and image dialogs can be enhanced with a predefined list of [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_link_list_url links] and [http://wiki.moxiecode.com/index.php/TinyMCE:Configuration/external_image_list_url images]. These entries are filled using a variable loaded from an external Javascript location. The `tinymce` application can serve these lists for you.
 
 === Creating external link and image views ===
 
