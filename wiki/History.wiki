@@ -17,3 +17,5 @@
 = Credits =
 
 `tinymce` was written by [http://joost.cassee.net/ Joost Cassee] based on the work by John D'Agostino. It was partly taken from [http://code.djangoproject.com/wiki/CustomWidgetsTinyMCE his code at the Django code wiki].
+
+The TinyMCE compressor was written by [http://www.jasondavies.com/ Jason Davies] based on the [http://wiki.moxiecode.com/index.php/TinyMCE:Compressor PHP TinyMCE compressor] from [http://www.moxiecode.com/ MoxieCode].
