@@ -48,8 +48,6 @@ See also [http://www.djangoproject.com/documentation/forms/#media-on-forms the s
 
 === The `HTMLField` model field type ===
 
-_new in development version_
-
 For lazy developers the `tinymce` application also contains a model field type for storing HTML. It uses the TinyMCE widget to render its form field. In this example, the admin will render the `my_field` field using the TinyMCE widget:
 
 {{{
