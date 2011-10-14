@@ -127,8 +127,8 @@ def gzip_compressor(request):
     response.write(content)
     timeout = 3600 * 24 * 10
     patch_response_headers(response, timeout)
-    cache.set(cacheKey, {
-        'Last-Modified': response['Last-Modified'],
-        'ETag': response['ETag'],
-    })
+    cacheData = {}
+    for header in ('Last-Modified', 'ETag'):
+        if response.has_key(header): cacheData[header] = response[header]
+    cache.set(cacheKey, cacheData)
     return response
